@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未來氣候推估</title>
+
+  <style>
+    :root{
+      --bg:#f3f5f7;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --accent:#9b3b3b;
+      --shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      font-family:"微軟正黑體", Arial, sans-serif;
+      color:var(--text);
+      line-height:1.7;
+    }
+
+    .wrap{
+      max-width:1000px;
+      margin:40px auto 60px;
+      padding:0 20px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      padding:28px 30px 34px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size:2rem;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    h1::before{
+      content:"";
+      width:10px;
+      height:30px;
+      border-radius:6px;
+      background:var(--accent);
+    }
+
+    .subtitle{
+      color:var(--muted);
+      margin:0 0 24px;
+      font-size:1.05rem;
+    }
+
+    h2{
+      margin:26px 0 12px;
+      font-size:1.35rem;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    h2::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--accent);
+    }
+
+    .text-box{
+      border:1px solid var(--border);
+      border-radius:12px;
+      padding:16px 18px;
+      background:#fff;
+      margin-bottom:22px;
+    }
+
+    .text-box p{
+      margin:6px 0;
+    }
+
+    .list{
+      margin:0;
+      padding-left:18px;
+    }
+    .list li{
+      margin:6px 0;
+    }
+
+    .figure{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:12px;
+      overflow:hidden;
+      background:#fff;
+    }
+
+    .figure img{
+      width:100%;
+      display:block;
+      height:auto;
+    }
+
+    /* 多張圖同一區塊時：做成格狀更好看 */
+    .img-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      padding:12px;
+      background:#fff;
+    }
+    .img-grid img{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:10px;
+      display:block;
+    }
+    @media (min-width: 820px){
+      .img-grid.cols-3{ grid-template-columns: repeat(3, 1fr); }
+      .img-grid.cols-2{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .figcap{
+      padding:10px 14px;
+      font-size:.95rem;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+      background:#fff;
+    }
+
+    .note{
+      margin-top:26px;
+      padding:14px 16px;
+      border-left:6px solid var(--accent);
+      background:#fff7f7;
+      border-radius:10px;
+      color:#5b2323;
+      font-size:.95rem;
+    }
+
+    @media(max-width:640px){
+      h1{ font-size:1.6rem; }
+      .wrap{ margin:24px auto 40px; }
+      .card{ padding:22px 18px 26px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card">
+
+      <h1>未來氣候推估</h1>
+      <p class="subtitle">宜蘭縣基期（1995–2014）與全球暖化程度 2°C 下的變化。</p>
+
+      <h2>推估摘要（基期 vs 暖化 2°C）</h2>
+      <div class="text-box">
+        <ul class="list">
+          <li>年平均溫度：18°C，平均增加 <b>1.1°C</b>，非常可能範圍約為 <b>0.5–1.7°C</b></li>
+          <li>年高溫 36°C 天數：1.1 天，平均增加 <b>9.7 天</b>，非常可能範圍約為 <b>3.7–17.7 天</b></li>
+          <li>年降雨量：2,742 毫米，平均增加 <b>2.2%</b>，非常可能範圍約為 <b>-11.1–18.8%</b></li>
+          <li>
+            季節降雨量：
+            <ul class="list">
+              <li>春季 346.8 毫米，平均減少 <b>2.1%</b>，非常可能範圍約為 <b>-18.3–19.8%</b></li>
+              <li>梅雨季 416.3 毫米，平均增加 <b>0.8%</b>，非常可能範圍約為 <b>-25.6–44.6%</b></li>
+              <li>夏季 981.2 毫米，平均增加 <b>6.0%</b>，非常可能範圍約為 <b>-17.7–35.1%</b></li>
+              <li>秋季 708.8 毫米，平均增加 <b>4.5%</b>，非常可能範圍約為 <b>-25.9–38.4%</b></li>
+              <li>冬季 295.5 毫米，平均減少 <b>4.8%</b>，非常可能範圍約為 <b>-29.9–20.4%</b></li>
+            </ul>
+          </li>
+          <li>年最大一日降雨量：284.4 毫米，平均增加 <b>9.3%</b>，非常可能範圍約為 <b>-9.7–29.0%</b></li>
+          <li>年最長連續不降雨日數：21.8 天，平均增加 <b>0.9 天</b>，非常可能範圍約為 <b>-2.1–3.9 天</b></li>
+        </ul>
+      </div>
+
+      <h2>年平均溫度</h2>
+      <p class="subtitle">與基期（1995–2014）相比，在不同全球暖化程度下，推估宜蘭縣年平均溫度的變化。</p>
+
+      <div class="figure">
+        <img src="PCC_05.png" alt="年平均溫度">
+        <div class="figcap">年平均溫度的變化分布</div>
+      </div>
+
+      <div class="figure">
+        <img src="PCC_06.png" alt="年平均溫度區域劃分">
+        <div class="figcap">年平均溫度區域劃分</div>
+      </div>
+
+      <h2>年高溫 36°C 天數</h2>
+      <p class="subtitle">與基期（1995–2014）相比，在不同全球暖化程度下，推估宜蘭縣年高溫 36°C 天數的變化。</p>
+
+      <div class="figure">
+        <img src="PCC_07.png" alt="年高溫36°C天數">
+        <div class="figcap">年高溫 36°C 天數的變化分布</div>
+      </div>
+
+      <h2>年降雨量</h2>
+      <p class="subtitle">與基期（1995–2014）相比，在不同全球暖化程度下，推估宜蘭縣年降雨量的變化。</p>
+
+      <div class="figure">
+        <img src="PCC_08.png" alt="年降雨量變化">
+        <div class="figcap">年降雨量的變化分布</div>
+      </div>
+
+      <div class="figure">
+        <img src="PCC_09.png" alt="年降雨量區域劃分">
+        <div class="figcap">年降雨量區域劃分</div>
+      </div>
+
+      <h2>季節降雨</h2>
+      <p class="subtitle">與基期（1995–2014）相比，在不同全球暖化程度下，推估宜蘭縣各季節降雨的變化。</p>
+
+      <div class="figure">
+        <img src="PCC_10.png" alt="季節降雨變化">
+        <div class="figcap">季節降雨的變化分布</div>
+      </div>
+
+      <div class="figure">
+        <div class="img-grid cols-3">
+          <img src="PCC_11.png" alt="春季降雨區域劃分">
+          <img src="PCC_12.png" alt="梅雨季降雨區域劃分">
+          <img src="PCC_13.png" alt="夏季/秋季/冬季降雨區域劃分（圖示）">
+        </div>
+        <div class="figcap">季節降雨區域劃分</div>
+      </div>
+
+      <h2>年最大一日降雨量</h2>
+      <p class="subtitle">與基期（1995–2014）相比，在不同全球暖化程度下，推估宜蘭縣年最大一日降雨量的變化。</p>
+
+      <div class="figure">
+        <img src="PCC_14.png" alt="年最大一日降雨量變化">
+        <div class="figcap">年最大一日降雨量的變化分布</div>
+      </div>
+
+      <div class="figure">
+        <img src="PCC_15.png" alt="年最大一日降雨量區域劃分">
+        <div class="figcap">年最大一日降雨量區域劃分</div>
+      </div>
+
+      <h2>年最長連續不降雨日數</h2>
+      <p class="subtitle">與基期（1995–2014）相比，在不同全球暖化程度下，推估宜蘭縣年最長連續不降雨日數的變化。</p>
+
+      <div class="figure">
+        <img src="PCC_16.png" alt="年最長連續不降雨日數變化">
+        <div class="figcap">年最長連續不降雨日數的變化分布</div>
+      </div>
+
+      <div class="figure">
+        <img src="PCC_17.png" alt="年最長連續不降雨日數區域劃分">
+        <div class="figcap">年最長連續不降雨日數區域劃分</div>
+      </div>
+
+      <div class="note">
+        資料來源：『縣市氣候變遷概述 2024』，國科會「臺灣氣候變遷推估資訊與調適知識平台計畫（TCCIP）」。
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>
